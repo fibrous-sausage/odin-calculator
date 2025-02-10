@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+button {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+}
+
+.display {
+    font-size: 3rem;
+}
+
+#add {
+    height: 8rem;
+}
+
+.calc-body {
+    width: 16rem;
+}
+
+.buttons {
+    display: flex;
+}
+
+.display {
+    text-align: right;
+}
+
+.input-format {
+    display: flex;
+    flex-wrap: wrap;
+}
