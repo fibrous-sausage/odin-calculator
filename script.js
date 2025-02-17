@@ -40,6 +40,16 @@ buttons.addEventListener("click", (event) => {
         inputQueue.push(currentInput === "0" ? buttonText : currentInput + buttonText);
     }
 
+    if (target.classList.contains("number-format")) {
+        if (target.id === "point") {
+            const currentInput = inputQueue.pop();
+            inputQueue.push(!currentInput.includes(".") && currentInput !== "" ? currentInput + "." : currentInput);
+        } else if (target.id === "undo" && !frontIsEmpty(inputQueue)) {
+            const currentInput = inputQueue.pop();
+            inputQueue.push(currentInput.slice(0, currentInput.length - 1));
+        }
+    }
+
     if (target.classList.contains("operator") && !frontIsEmpty(inputQueue)) {
         if (inputQueue.length == 3) {
             const y = Number.parseFloat(inputQueue.pop());
@@ -64,6 +74,6 @@ buttons.addEventListener("click", (event) => {
         clear(inputQueue);
         inputQueue.push("0");
     }
-    
+    console.log(inputQueue);
     display.textContent = divByZeroError ? "🐈" : inputQueue.at(frontIsEmpty(inputQueue) ? -3 : -1);
 });
